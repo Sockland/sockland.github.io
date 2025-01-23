@@ -1,28 +1,69 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sockland</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>Calcetines Confort</title>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo Sockland" width="200">
+        <h1>Bienvenidos a Calcetines Confort</h1>
     </header>
 
-    <h1>Bienvenidos a Sockland</h1>
+    <section>
+        <h2>Acerca de Nosotros</h2>
+        <p>Somos una empresa dedicada a la fabricación y venta de <strong>calcetines de alta calidad</strong>. Nos apasiona ofrecer productos cómodos, duraderos y estilosos para todos los gustos y necesidades.</p>
+        <p>Nuestro compromiso es proporcionar <strong>calcetines</strong> que no solo te mantengan cómodo, sino que también le den un toque único a tu estilo.</p>
+    </section>
 
-    <div id="contenido-markdown"></div>
+    <section>
+        <h2>Nuetros Productos</h2>
 
-    <script>
-        fetch('inicio.md')
-            .then(response => response.text())
-            .then(data => {
-                const htmlContent = marked(data);
-                document.getElementById('contenido-markdown').innerHTML = htmlContent;
-            })
-            .catch(error => console.error('Error al cargar el archivo Markdown:', error));
-    </script>
+        <h3>1. Calcetines Deportivos</h3>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>Tejido transpirable</li>
+            <li>Resistente al desgaste</li>
+            <li>Ajuste perfecto para actividades deportivas</li>
+        </ul>
+        <p><a href="https://www.example.com/productos/calcetines-deportivos">¡Compra Ahora!</a></p>
+
+        <h3>2. Calcetines de Algodón Orgánico</h3>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>Hechos con algodón 100% orgánico</li>
+            <li>Suaves y ecológicos</li>
+            <li>Ideal para uso diario</li>
+        </ul>
+        <p><a href="https://www.example.com/productos/calcetines-algodon">¡Compra Ahora!</a></p>
+    </section>
+
+    <section>
+        <h2>¿Por qué Elegirnos?</h2>
+        <ul>
+            <li><strong>Calidad Garantizada</strong>: Todos nuestros calcetines están hechos con materiales de la mejor calidad para brindarte comodidad durante todo el día.</li>
+            <li><strong>Variedad de Diseños</strong>: Ofrecemos una amplia gama de colores y patrones para que siempre encuentres el calcetín perfecto para ti.</li>
+            <li><strong>Envíos Rápidos</strong>: Disfruta de nuestros rápidos tiempos de entrega a nivel nacional.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Contacto</h2>
+        <p>Si tienes alguna pregunta o inquietud, no dudes en ponerte en contacto con nosotros:</p>
+        <ul>
+            <li><strong>Correo Electrónico</strong>: contacto@calcetinesconfort.com</li>
+            <li><strong>Teléfono</strong>: +34 912 345 678</li>
+            <li><strong>Dirección</strong>: Calle de los Calcetines, 123, Madrid, España</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Síguenos en nuestras redes sociales</h2>
+        <ul>
+            <li><a href="https://www.facebook.com/calcetinesconfort">Facebook</a></li>
+            <li><a href="https://www.instagram.com/calcetinesconfort">Instagram</a></li>
+            <li><a href="https://www.twitter.com/calcetinesconfort">Twitter</a></li>
+        </ul>
+    </section>
 </body>
 </html>
