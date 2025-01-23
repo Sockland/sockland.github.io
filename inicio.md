@@ -1,10 +1,10 @@
-# ¡Bienvenidos a Calcetines Confort!
+# ¡Bienvenidos a Sockland!
 
 ## Acerca de Nosotros
 
-Somos una empresa dedicada a la fabricación y venta de **calcetines de alta calidad**. Nos apasiona ofrecer productos cómodos, duraderos y estilosos para todos los gustos y necesidades.
+Somos una empresa dedicada a la fabricación y venta de **Sockland de alta calidad**. Nos apasiona ofrecer productos cómodos, duraderos y estilosos para todos los gustos y necesidades.
 
-Nuestro compromiso es proporcionar **calcetines** que no solo te mantengan cómodo, sino que también le den un toque único a tu estilo.
+Nuestro compromiso es proporcionar **Sockland** que no solo te mantengan cómodo, sino que también le den un toque único a tu estilo.
 
 ---
 
@@ -12,7 +12,7 @@ Nuestro compromiso es proporcionar **calcetines** que no solo te mantengan cómo
 
 Aquí te presentamos algunos de nuestros mejores modelos:
 
-### 1. **Calcetines Deportivos**
+### 1. **Sockland Deportivos**
 
 <iframe src="https://www.example.com/images/calcetines-deportivos.jpg" width="300" height="300" alt="Calcetines Deportivos" />
 
