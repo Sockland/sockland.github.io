@@ -15,17 +15,57 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background-color: #eef6fc;
+            overflow-x: hidden;
         }
 
         header {
-            background: #008cba;
-            color: white;
+            background: linear-gradient(45deg, #0077b6, #0096c7);
             text-align: center;
-            padding: 1rem 0;
+            padding: 6rem 0 3rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
         }
 
-        h1, h2, h3 {
-            margin-bottom: 1rem;
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://via.placeholder.com/1920x500?text=Calcetines+Sockland');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        header h1 {
+            position: relative;
+            font-size: 3rem;
+            animation: bounceIn 2s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        header p {
+            position: relative;
+            font-size: 1.2rem;
+            margin-top: 1rem;
         }
 
         section {
@@ -33,28 +73,78 @@
             border-bottom: 1px solid #ddd;
         }
 
+        section:nth-child(even) {
+            background-color: #f1f9ff;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0077b6;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: #0096c7;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+        }
+
         ul {
             list-style-type: disc;
             margin-left: 2rem;
         }
 
+        ul li {
+            margin-bottom: 0.5rem;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         a {
-            color: #008cba;
+            color: #0077b6;
             text-decoration: none;
+            font-weight: bold;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: #005f99;
+        }
+
+        .product-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #0077b6;
+            color: white;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+            text-align: center;
+        }
+
+        .product-link:hover {
+            background-color: #005f99;
+            transform: scale(1.1);
         }
 
         footer {
             text-align: center;
             padding: 1rem 0;
-            background: #f4f4f4;
+            background: #0077b6;
+            color: white;
             margin-top: 2rem;
         }
 
-        /* Estilos responsivos */
         @media (max-width: 768px) {
             body {
                 font-size: 14px;
@@ -71,7 +161,7 @@
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             h2 {
@@ -87,34 +177,32 @@
 <body>
     <header>
         <h1>Bienvenidos a Sockland</h1>
+        <p>Comodidad, estilo y cuidado para tus pies.</p>
     </header>
 
     <section>
         <h2>Acerca de Nosotros</h2>
-        <p>En <strong>Sockland</strong>, nos especializamos en la fabricación y venta de <strong>calcetines especiales para la circulación</strong>. Nuestros calcetines están diseñados para mejorar el flujo sanguíneo y proporcionar comodidad durante todo el día.</p>
-        <p>Nos apasiona ofrecer productos que ayuden a mejorar tu bienestar y calidad de vida. Ya sea que necesites un alivio para la fatiga, o mejorar la circulación en tus piernas, nuestros calcetines son la solución ideal.</p>
+        <p>En <span class="highlight">Sockland</span>, nos especializamos en la fabricación y venta de <strong>calcetines especiales para la circulación</strong>. Nuestros calcetines están diseñados para mejorar el flujo sanguíneo y proporcionar comodidad durante todo el día.</p>
     </section>
 
     <section>
-        <h2>Nuetros Productos</h2>
+        <h2>Nuestros Productos</h2>
 
         <h3>1. Calcetines para la Circulación Deportiva</h3>
-        <p><strong>Características:</strong></p>
         <ul>
             <li>Compresión graduada para mejorar el flujo sanguíneo</li>
             <li>Tejido transpirable que mantiene tus pies secos</li>
             <li>Diseñados para actividades deportivas y largos entrenamientos</li>
         </ul>
-        <p><a href="https://www.example.com/productos/calcetines-deportivos" aria-label="Compra calcetines deportivos">¡Compra Ahora!</a></p>
+        <a href="./paginas/calcetines-deportivos.html" class="product-link">¡Compra Ahora!</a>
 
         <h3>2. Calcetines de Compresión para Uso Diario</h3>
-        <p><strong>Características:</strong></p>
         <ul>
             <li>Compresión suave que ayuda a reducir la hinchazón y la fatiga</li>
             <li>Hechos con materiales suaves y cómodos para el uso diario</li>
             <li>Ideales para personas que pasan mucho tiempo de pie o sentadas</li>
         </ul>
-        <p><a href="https://www.example.com/productos/calcetines-compresion" aria-label="Compra calcetines de compresión">¡Compra Ahora!</a></p>
+        <a href="./paginas/calcetines-compresion.html" class="product-link">¡Compra Ahora!</a>
     </section>
 
     <section>
@@ -123,25 +211,6 @@
             <li><strong>Mejora tu Circulación</strong>: Nuestros calcetines están diseñados para promover una circulación sanguínea óptima, reduciendo el riesgo de problemas como la hinchazón o la fatiga.</li>
             <li><strong>Comodidad Todo el Día</strong>: Hechos con materiales de alta calidad, nuestros calcetines son cómodos, suaves y perfectos para llevarlos durante todo el día.</li>
             <li><strong>Variedad de Diseños</strong>: Ofrecemos calcetines con distintos niveles de compresión y estilos, tanto para uso deportivo como para el día a día.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Contacto</h2>
-        <p>Si tienes alguna pregunta o inquietud, no dudes en ponerte en contacto con nosotros:</p>
-        <ul>
-            <li><strong>Correo Electrónico</strong>: <a href="mailto:contacto@sockland.com">contacto@sockland.com</a></li>
-            <li><strong>Teléfono</strong>: <a href="tel:+34912345678">+34 912 345 678</a></li>
-            <li><strong>Dirección</strong>: Calle de los Calcetines, 123, Madrid, España</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Síguenos en nuestras redes sociales</h2>
-        <ul>
-            <li><a href="https://www.facebook.com/sockland" aria-label="Visita nuestra página de Facebook">Facebook</a></li>
-            <li><a href="https://www.instagram.com/sockland" aria-label="Visita nuestro perfil de Instagram">Instagram</a></li>
-            <li><a href="https://www.twitter.com/sockland" aria-label="Visita nuestro perfil de Twitter">Twitter</a></li>
         </ul>
     </section>
 
