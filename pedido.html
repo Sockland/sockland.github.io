@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Confirmación del pedido realizado en Sockland">
-    <title>Confirmación de Pedido</title>
+    <meta name="description" content="Confirmación de pedido en Sockland.">
+    <title>Pedido Confirmado</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #eef6fc;
             color: #333;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 2rem auto;
-            background: #ffffff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #eef6fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             text-align: center;
         }
 
+        .confirmation-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            width: 100%;
+            margin: 1rem;
+        }
+
         h1 {
+            font-size: 2rem;
             color: #0077b6;
             margin-bottom: 1rem;
         }
@@ -33,61 +39,52 @@
         p {
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
+            color: #555;
         }
 
-        button {
+        .thank-you {
+            font-weight: bold;
+            color: #0096c7;
+        }
+
+        a {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
+            padding: 0.8rem 1.5rem;
             background-color: #0077b6;
             color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
             text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1rem;
+            font-weight: bold;
         }
 
-        button:hover {
+        a:hover {
             background-color: #005f99;
+            transform: scale(1.05);
         }
-    </style>
-    <script>
-        function calcularFechaEntrega() {
-            const hoy = new Date();
-            let diasRestantes = 3;
 
-            while (diasRestantes > 0) {
-                hoy.setDate(hoy.getDate() + 1);
-                const diaSemana = hoy.getDay();
-                // 0 = Domingo, 6 = Sábado
-                if (diaSemana !== 0 && diaSemana !== 6) {
-                    diasRestantes--;
-                }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
             }
 
-            const dia = hoy.getDate().toString().padStart(2, '0');
-            const mes = (hoy.getMonth() + 1).toString().padStart(2, '0');
-            const anio = hoy.getFullYear();
+            p {
+                font-size: 1rem;
+            }
 
-            return `Tu pedido llegará aproximadamente el día ${dia}/${mes}/${anio}.`;
+            a {
+                font-size: 0.9rem;
+            }
         }
-
-        window.onload = function() {
-            const mensaje = calcularFechaEntrega();
-            document.getElementById('mensaje-confirmacion').textContent = mensaje;
-        };
-
-        function volverInicio() {
-            window.location.href = 'index.html';
-        }
-    </script>
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>¡Gracias por tu compra!</h1>
-        <p id="mensaje-confirmacion">Cargando información del pedido...</p>
-        <button onclick="volverInicio()">Volver al Inicio</button>
+    <div class="confirmation-container">
+        <h1>¡Pedido Confirmado!</h1>
+        <p>Gracias por tu compra en <span class="thank-you">Sockland</span>.</p>
+        <p>Hemos recibido tu pedido y te contactaremos pronto con los detalles del envío.</p>
+        <a href="index.html">Volver al Inicio</a>
     </div>
 </body>
 </html>
