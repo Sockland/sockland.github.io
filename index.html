@@ -7,216 +7,247 @@
     <meta name="keywords" content="calcetines, compresión, circulación, comodidad, salud">
     <meta name="author" content="Sockland">
     <title>Sockland</title>
+    <link rel="icon" href="logo2.png" type="image/png">
     <style>
-        /* Estilos generales */
+        /* Tipografía y colores */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            background: linear-gradient(180deg, #f8fcff, #d9f1ff);
             color: #333;
-            background-color: #eef6fc;
-            overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(45deg, #0077b6, #0096c7);
-            text-align: center;
-            padding: 6rem 0 3rem;
+            background: linear-gradient(120deg, #0066cc, #00bfff);
             color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 120px; /* Ajusta el tamaño del logo */
+            height: auto; /* Mantén las proporciones del logo */
+            max-width: 100%; /* Evita que sea más grande que el contenedor */
+            border-radius: 10px; /* Opcional: Bordes redondeados */
+            animation: float 3s ease-in-out infinite; /* Efecto flotante */
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
         }
 
         header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://via.placeholder.com/1920x500?text=Calcetines+Sockland');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.2;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+            animation: rotateBackground 10s linear infinite;
         }
 
-        header h1 {
-            position: relative;
-            font-size: 3rem;
-            animation: bounceIn 2s ease-out;
-        }
-
-        @keyframes bounceIn {
+        @keyframes rotateBackground {
             0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            60% {
-                transform: scale(1.2);
-                opacity: 1;
+                transform: rotate(0deg);
             }
             100% {
-                transform: scale(1);
+                transform: rotate(360deg);
             }
-        }
-
-        header p {
-            position: relative;
-            font-size: 1.2rem;
-            margin-top: 1rem;
         }
 
         section {
-            padding: 2rem;
-            border-bottom: 1px solid #ddd;
-        }
-
-        section:nth-child(even) {
-            background-color: #f1f9ff;
-        }
-
-        h2 {
+            padding: 4rem 2rem;
             text-align: center;
+        }
+
+        section:nth-child(odd) {
+            background: #f0f9ff;
+        }
+
+        section h2 {
+            font-size: 2rem;
             color: #0077b6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: #0096c7;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
         }
 
         .highlight {
-            background: #0096c7;
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 5px;
+            color: #0096c7;
+            font-weight: 700;
         }
 
-        ul {
-            list-style-type: disc;
-            margin-left: 2rem;
+        /* Estilo de tarjetas */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
         }
 
-        ul li {
-            margin-bottom: 0.5rem;
-            animation: fadeIn 1s ease;
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        a {
+        .card h3 {
+            font-size: 1.5rem;
             color: #0077b6;
-            text-decoration: none;
-            font-weight: bold;
+            margin-bottom: 1rem;
         }
 
-        a:hover {
-            color: #005f99;
+        .card ul {
+            text-align: left;
+            list-style: none;
+            padding: 0;
         }
 
-        /* Estilo para los botones */
+        .card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #0096c7;
+            font-size: 1.2rem;
+        }
+
         .product-link {
             display: inline-block;
             margin-top: 1rem;
             padding: 0.5rem 1rem;
-            background-color: #0077b6;
+            background: linear-gradient(45deg, #0096c7, #0077b6);
             color: white;
-            border-radius: 5px;
-            text-align: center;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, background-color 0.3s;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        /* Mantener el texto blanco al pasar el ratón */
         .product-link:hover {
-            background-color: #005f99;
+            background: linear-gradient(45deg, #005f99, #004080);
             transform: scale(1.1);
-            color: white; /* Asegurar que las letras permanezcan blancas */
         }
 
         footer {
+            background: #0066cc;
+            color: #fff;
             text-align: center;
-            padding: 1rem 0;
-            background: #0077b6;
-            color: white;
-            margin-top: 2rem;
+            padding: 2rem 0;
+        }
+
+        footer p {
+            margin: 0;
         }
 
         @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
-
-            section {
-                padding: 1rem;
-            }
-
-            ul {
-                margin-left: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-            }
-
-            section {
-                padding: 0.5rem;
+            .card-container {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Bienvenidos a Sockland</h1>
+        <div class="header-content">
+            <img src="logo.png" alt="Logo de Sockland" class="logo">
+        </div>
         <p>Comodidad, estilo y cuidado para tus pies.</p>
     </header>
 
     <section>
         <h2>Acerca de Nosotros</h2>
-        <p>En <span class="highlight">Sockland</span>, nos especializamos en la fabricación y venta de <strong>calcetines especiales para la circulación</strong>. Nuestros calcetines están diseñados para mejorar el flujo sanguíneo y proporcionar comodidad durante todo el día.</p>
+        <p>En <span class="highlight">Sockland</span>, nos especializamos en la fabricación y venta de <strong>calcetines especiales para la circulación</strong>. Nuestros productos están diseñados para combinar <span class="highlight">comodidad</span>, <span class="highlight">estilo</span> y <span class="highlight">salud</span>.</p>
     </section>
 
     <section>
         <h2>Nuestros Productos</h2>
-
-        <h3>1. Calcetines para la Circulación Deportiva</h3>
-        <ul>
-            <li>Compresión graduada para mejorar el flujo sanguíneo</li>
-            <li>Tejido transpirable que mantiene tus pies secos</li>
-            <li>Diseñados para actividades deportivas y largos entrenamientos</li>
-        </ul>
-        <a href="./formulario.html" class="product-link">¡Compra Ahora!</a>
-
-        <h3>2. Calcetines de Compresión para Uso Diario</h3>
-        <ul>
-            <li>Compresión suave que ayuda a reducir la hinchazón y la fatiga</li>
-            <li>Hechos con materiales suaves y cómodos para el uso diario</li>
-            <li>Ideales para personas que pasan mucho tiempo de pie o sentadas</li>
-        </ul>
-        <a href="./formulario.html" class="product-link">¡Compra Ahora!</a>
+        <div class="card-container">
+            <div class="card">
+                <h3>Calcetines Deportivos</h3>
+                <ul>
+                    <li>Compresión graduada para mejorar el flujo sanguíneo</li>
+                    <li>Tejido transpirable que mantiene tus pies secos</li>
+                    <li>Diseñados para largos entrenamientos</li>
+                </ul>
+                <a href="./formulario.html" class="product-link">¡Compra Ahora!</a>
+            </div>
+            <div class="card">
+                <h3>Calcetines para Uso Diario</h3>
+                <ul>
+                    <li>Compresión suave para reducir hinchazón</li>
+                    <li>Materiales suaves y cómodos</li>
+                    <li>Perfectos para largas jornadas</li>
+                </ul>
+                <a href="./formulario.html" class="product-link">¡Compra Ahora!</a>
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>¿Por qué Elegirnos?</h2>
-        <ul>
-            <li><strong>Mejora tu Circulación</strong>: Nuestros calcetines están diseñados para promover una circulación sanguínea óptima, reduciendo el riesgo de problemas como la hinchazón o la fatiga.</li>
-            <li><strong>Comodidad Todo el Día</strong>: Hechos con materiales de alta calidad, nuestros calcetines son cómodos, suaves y perfectos para llevarlos durante todo el día.</li>
-            <li><strong>Variedad de Diseños</strong>: Ofrecemos calcetines con distintos niveles de compresión y estilos, tanto para uso deportivo como para el día a día.</li>
-        </ul>
+        <p>En Sockland ofrecemos lo mejor para tus pies:</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>Calidad Premium</h3>
+                <p>Nuestros materiales son seleccionados para brindar máxima comodidad y durabilidad.</p>
+            </div>
+            <div class="card">
+                <h3>Diseño Innovador</h3>
+                <p>Calcetines modernos y funcionales que se adaptan a tus necesidades.</p>
+            </div>
+            <div class="card">
+                <h3>Cuidado de tu Salud</h3>
+                <p>Calcetines diseñados para promover la circulación sanguínea óptima.</p>
+            </div>
+        </div>
     </section>
 
     <footer>
