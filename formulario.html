@@ -94,23 +94,26 @@
             margin-top: 1rem;
         }
 
+        /* Métodos de pago */
         .radio-group {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap; /* Permitir que los elementos se ajusten en línea */
+            gap: 1rem; /* Espaciado uniforme entre opciones */
             margin-bottom: 1.5rem;
         }
 
         .radio-group label {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 500;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             cursor: pointer;
+            flex: 1 1 100%; /* Cada opción ocupa toda la línea en móviles */
         }
 
         .radio-group input {
-            transform: scale(1.2);
+            transform: scale(1.2); /* Tamaño del botón */
             margin: 0;
         }
 
@@ -126,6 +129,11 @@
             input, select, textarea, button {
                 font-size: 0.9rem;
                 padding: 0.65rem;
+            }
+
+            .radio-group {
+                flex-direction: column; /* Opciones en una sola columna */
+                gap: 0.8rem;
             }
         }
 
