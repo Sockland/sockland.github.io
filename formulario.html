@@ -97,27 +97,39 @@
         /* Métodos de pago */
         .radio-group {
             display: flex;
-            flex-wrap: wrap; /* Permitir que los elementos se ajusten en línea */
-            gap: 1rem; /* Espaciado uniforme entre opciones */
+            flex-wrap: wrap;
+            gap: 0.8rem;
             margin-bottom: 1.5rem;
         }
 
         .radio-group label {
-            font-size: 1rem;
-            font-weight: 500;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1rem;
             cursor: pointer;
-            flex: 1 1 100%; /* Cada opción ocupa toda la línea en móviles */
+            flex: 1 1 calc(50% - 0.8rem); /* Cada elemento ocupa el 50% con espacio */
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .radio-group label:hover {
+            background: #e0f7fa;
+            border-color: #0077b6;
         }
 
         .radio-group input {
-            transform: scale(1.2); /* Tamaño del botón */
+            transform: scale(1.2);
             margin: 0;
         }
 
         @media (max-width: 768px) {
+            .radio-group label {
+                flex: 1 1 100%; /* En móviles, cada elemento ocupa una línea completa */
+            }
+
             body {
                 padding: 1rem;
             }
@@ -129,11 +141,6 @@
             input, select, textarea, button {
                 font-size: 0.9rem;
                 padding: 0.65rem;
-            }
-
-            .radio-group {
-                flex-direction: column; /* Opciones en una sola columna */
-                gap: 0.8rem;
             }
         }
 
