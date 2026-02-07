@@ -1,257 +1,321 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sockland: Calcetines diseñados para mejorar la circulación. Encuentra comodidad y bienestar con nuestros productos de alta calidad.">
-    <meta name="keywords" content="calcetines, compresión, circulación, comodidad, salud">
-    <meta name="author" content="Sockland">
-    <title>Sockland</title>
-    <link rel="icon" href="logo2.png" type="image/png">
-    <style>
-        /* Tipografía y colores */
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(180deg, #f8fcff, #d9f1ff);
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header {
-            background: linear-gradient(120deg, #0066cc, #00bfff);
-            color: #fff;
-            text-align: center;
-            padding: 4rem 1rem;
-            position: relative;
-            overflow: hidden;
-        }
+<title>Cocinas Inglesas</title>
 
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="logo.png">
 
-        .logo {
-            width: 200px; /* Ajusta el tamaño del logo */
-            height: auto; /* Mantén las proporciones del logo */
-            max-width: 100%; /* Evita que sea más grande que el contenedor */
-            border-radius: 10px; /* Opcional: Bordes redondeados */
-            animation: float 3s ease-in-out infinite; /* Efecto flotante */
-        }
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        header p {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
-            animation: rotateBackground 10s linear infinite;
-        }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f5f4f2;
+    color: #2c2c2c;
+}
 
-        @keyframes rotateBackground {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+/* MENÚ */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(30,30,30,0.9);
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
 
-        section {
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
 
-        section:nth-child(odd) {
-            background: #f0f9ff;
-        }
+.logo img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
 
-        section h2 {
-            font-size: 2rem;
-            color: #0077b6;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
+nav h1 {
+    font-family: 'Playfair Display', serif;
+    color: #d6c28f;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
 
-        section h2::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 4px;
-            background: #0096c7;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
 
-        .highlight {
-            color: #0096c7;
-            font-weight: 700;
-        }
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
 
-        /* Estilo de tarjetas */
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
+nav ul li a:hover {
+    color: #d6c28f;
+}
 
-        .card {
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+/* HERO */
+header {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url("hero-cocina.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
+header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    max-width: 900px;
+}
 
-        .card h3 {
-            font-size: 1.5rem;
-            color: #0077b6;
-            margin-bottom: 1rem;
-        }
+header p {
+    color: #eee;
+    margin: 1.5rem 0 3rem;
+    font-size: 1.2rem;
+}
 
-        .card ul {
-            text-align: left;
-            list-style: none;
-            padding: 0;
-        }
+header a {
+    padding: 1rem 2.5rem;
+    background: #d6c28f;
+    color: #2c2c2c;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 30px;
+    transition: background 0.3s;
+}
 
-        .card ul li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
+header a:hover {
+    background: #e8d7a2;
+}
 
-        .card ul li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            color: #0096c7;
-            font-size: 1.2rem;
-        }
+/* SECCIONES */
+section {
+    padding: 6rem 3rem;
+    max-width: 1400px;
+    margin: auto;
+}
 
-        .product-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(45deg, #0096c7, #0077b6);
-            color: white;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.3s, transform 0.3s;
-        }
+section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
 
-        .product-link:hover {
-            background: linear-gradient(45deg, #005f99, #004080);
-            transform: scale(1.1);
-        }
+/* CATÁLOGO */
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
 
-        footer {
-            background: #0066cc;
-            color: #fff;
-            text-align: center;
-            padding: 2rem 0;
-        }
+.item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
 
-        footer p {
-            margin: 0;
-        }
+.item img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
 
-        @media (max-width: 768px) {
-            .card-container {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+.item:hover img {
+    transform: scale(1.1);
+}
+
+.item .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h4 {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* SOBRE NOSOTROS */
+.about {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* UBICACIÓN */
+#ubicacion iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+/* CONTACTO */
+.contacto {
+    background: #1f1f1f;
+    color: #eee;
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.contacto h3 {
+    color: #d6c28f;
+}
+
+.contacto a {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    border: 1px solid #d6c28f;
+    color: #d6c28f;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.contacto a:hover {
+    background: #d6c28f;
+    color: #1f1f1f;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #777;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header h2 {
+        font-size: 2.5rem;
+    }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <div class="header-content">
-            <img src="logo.png" alt="Logo de Sockland" class="logo">
+
+<nav>
+    <div class="logo">
+        <img src="logo.png" alt="Cocinas Inglesas">
+        <h1>Cocinas Inglesas</h1>
+    </div>
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#nosotros">Sobre Nosotros</a></li>
+        <li><a href="#ubicacion">Dónde estamos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+</nav>
+
+<header id="inicio">
+    <div>
+        <h2>Elegancia inglesa para el corazón de tu hogar</h2>
+        <p>Cocinas atemporales, diseño artesanal y materiales de alta calidad</p>
+        <a href="#catalogo">Ver Catálogo</a>
+    </div>
+</header>
+
+<section id="catalogo">
+    <h3>Catálogo de Cocinas</h3>
+    <div class="catalogo">
+        <div class="item">
+            <img src="cocina1.jpg" alt="">
+            <div class="overlay"><h4>Cocina Clásica Blanca</h4></div>
         </div>
-        <p>Comodidad, estilo y cuidado para tus pies.</p>
-    </header>
-
-    <section>
-        <h2>Acerca de Nosotros</h2>
-        <p>En <span class="highlight">Sockland</span>, nos especializamos en la fabricación y venta de <strong>calcetines especiales para la circulación</strong>. Nuestros productos están diseñados para combinar <span class="highlight">comodidad</span>, <span class="highlight">estilo</span> y <span class="highlight">salud</span>.</p>
-    </section>
-
-    <section>
-        <h2>Nuestros Productos</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>Calcetines Deportivos</h3>
-                <ul>
-                    <li>Compresión graduada para mejorar el flujo sanguíneo</li>
-                    <li>Tejido transpirable que mantiene tus pies secos</li>
-                    <li>Diseñados para largos entrenamientos</li>
-                </ul>
-                <a href="./formulario.html" class="product-link">¡Compra Ahora!</a>
-            </div>
-            <div class="card">
-                <h3>Calcetines para Uso Diario</h3>
-                <ul>
-                    <li>Compresión suave para reducir hinchazón</li>
-                    <li>Materiales suaves y cómodos</li>
-                    <li>Perfectos para largas jornadas</li>
-                </ul>
-                <a href="./formulario.html" class="product-link">¡Compra Ahora!</a>
-            </div>
+        <div class="item">
+            <img src="cocina2.jpg" alt="">
+            <div class="overlay"><h4>Madera Natural</h4></div>
         </div>
-    </section>
-
-    <section>
-        <h2>¿Por qué Elegirnos?</h2>
-        <p>En Sockland ofrecemos lo mejor para tus pies:</p>
-        <div class="card-container">
-            <div class="card">
-                <h3>Calidad Premium</h3>
-                <p>Nuestros materiales son seleccionados para brindar máxima comodidad y durabilidad.</p>
-            </div>
-            <div class="card">
-                <h3>Diseño Innovador</h3>
-                <p>Calcetines modernos y funcionales que se adaptan a tus necesidades.</p>
-            </div>
-            <div class="card">
-                <h3>Cuidado de tu Salud</h3>
-                <p>Calcetines diseñados para promover la circulación sanguínea óptima.</p>
-            </div>
+        <div class="item">
+            <img src="cocina3.jpg" alt="">
+            <div class="overlay"><h4>Estilo Inglés Moderno</h4></div>
         </div>
-    </section>
+        <div class="item">
+            <img src="cocina4.jpg" alt="">
+            <div class="overlay"><h4>Diseño Tradicional</h4></div>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2025 Sockland. Todos los derechos reservados.</p>
-    </footer>
+<section id="nosotros">
+    <h3>Sobre Nosotros</h3>
+    <p class="about">
+        Diseñamos cocinas de estilo inglés combinando tradición, funcionalidad
+        y una estética cuidada al detalle. Cada proyecto refleja elegancia,
+        equilibrio y calidad duradera.
+    </p>
+</section>
+
+<section id="ubicacion">
+    <h3>Dónde estamos</h3>
+    <div style="max-width:1000px;margin:auto;border-radius:12px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+        <iframe 
+            src="https://www.google.com/maps?q=Madrid&output=embed"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<div class="contacto" id="contacto">
+    <h3>¿Hablamos?</h3>
+    <p>Diseñemos juntos la cocina que imaginas</p>
+    <a href="mailto:info@cocinasinglesas.com">Contactar</a>
+</div>
+
+<footer>
+    © 2025 Cocinas Inglesas · Diseño y tradición
+</footer>
+
 </body>
 </html>
