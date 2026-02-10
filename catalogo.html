@@ -7,23 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Montserrat',sans-serif; background:#f5f4f2; padding:2rem;}
+body {font-family:'Montserrat',sans-serif; background:#f5f4f2; padding:2rem 1rem;}
+
+/* MENU */
 nav {position:fixed; top:0; width:100%; background:rgba(30,30,30,0.95); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; z-index:1000;}
 .logo {display:flex; align-items:center; gap:.7rem;}
 .logo img {width:32px;}
 nav h1 {font-family:'Playfair Display', serif; color:#d6c28f; font-size:1.4rem;}
-nav ul {list-style:none; display:flex; gap:2rem;}
+nav ul {list-style:none; display:flex; gap:1.5rem;}
 nav ul li a {color:#fff; text-decoration:none; font-size:.9rem;}
-.menu-toggle {display:none; font-size:1.8rem; color:#fff; cursor:pointer;}
 nav ul li a:hover {color:#d6c28f;}
-@media (max-width:768px){
-    nav ul{position:absolute;top:100%;left:0;width:100%;background:#1f1f1f;flex-direction:column;align-items:center;gap:1.5rem;padding:2rem 0;display:none;}
-    nav ul.active{display:flex;}
-    .menu-toggle{display:block;}
-}
+.menu-toggle {display:none; font-size:1.8rem; color:#fff; cursor:pointer;}
 
 /* GALERÍA */
-.galeria-container{position:relative;max-width:600px;margin:8rem auto 2rem;}
+.galeria-container{position:relative;max-width:600px;margin:6rem auto 2rem;}
 .galeria{position:relative;aspect-ratio:4/3;}
 .galeria img{width:100%; border-radius:12px; position:absolute; top:0; left:0; opacity:0; transform:scale(1.03); transition:opacity .5s, transform .5s;}
 .galeria img.visible{opacity:1; transform:scale(1); z-index:1;}
@@ -35,13 +32,25 @@ nav ul li a:hover {color:#d6c28f;}
 
 /* DETALLE Y BOTONES */
 .detalle{margin-top:1.5rem;text-align:center;}
-.detalle strong{display:block;margin-bottom:.5rem;}
-.detalle p{margin-bottom:1rem;color:#666;}
-.botones{display:flex;justify-content:center;gap:1rem;margin-top:1rem;}
-button{padding:.8rem 1.5rem;border-radius:30px;border:none;cursor:pointer;font-family:inherit;}
+.detalle strong{display:block;margin-bottom:.5rem;font-size:1.2rem;}
+.detalle p{margin-bottom:1rem;color:#666;font-size:1rem;}
+.botones{display:flex;justify-content:center;gap:.7rem;margin-top:1rem; flex-wrap:wrap;}
+button{padding:.6rem 1.2rem;border-radius:30px;border:none;cursor:pointer;font-family:inherit; font-size:1rem;}
 button.precio{background:#d6c28f;}
-button.icono{background:#eee; font-size:1.2rem;}
+button.icono{background:#eee;}
 button.favorito{background:#d6c28f;color:#fff;}
+
+/* MEDIA QUERIES */
+@media(max-width:768px){
+    nav ul{position:absolute;top:100%;left:0;width:100%;background:#1f1f1f;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem 0;display:none;}
+    nav ul.active{display:flex;}
+    .menu-toggle{display:block;}
+    .galeria-container{margin-top:6rem; width:95%;}
+    .flecha{width:40px; height:40px; font-size:1.5rem;}
+    .detalle strong{font-size:1.1rem;}
+    .detalle p{font-size:.95rem;}
+    button{padding:.5rem 1rem; font-size:.95rem;}
+}
 </style>
 </head>
 <body>
@@ -86,42 +95,32 @@ button.favorito{background:#d6c28f;color:#fff;}
 function toggleMenu(){document.getElementById("menu").classList.toggle("active");}
 
 // GALERÍA
-let index = 0;
-const imagenes = document.querySelectorAll(".galeria img");
+let index=0;
+const imagenes=document.querySelectorAll(".galeria img");
 function showImage(i){imagenes.forEach(img=>img.classList.remove("visible"));imagenes[i].classList.add("visible");}
-function nextImage(){index=(index+1)%imagenes.length;showImage(index);}
-function prevImage(){index=(index-1+imagenes.length)%imagenes.length;showImage(index);}
+function nextImage(){index=(index+1)%imagenes.length; showImage(index);}
+function prevImage(){index=(index-1+imagenes.length)%imagenes.length; showImage(index);}
 showImage(index);
 
 // FAVORITOS
-const favoritoBtn = document.getElementById("favorito-btn");
-const currentId = index+1; // ID simple de ejemplo (1,2,3)
+const favoritoBtn=document.getElementById("favorito-btn");
+const currentId=index+1;
 function actualizarBoton(){
     let favs=JSON.parse(localStorage.getItem("favoritos"))||[];
-    if(favs.includes(currentId)){
-        favoritoBtn.classList.add("favorito");
-    } else {
-        favoritoBtn.classList.remove("favorito");
-    }
+    favoritoBtn.classList.toggle("favorito", favs.includes(currentId));
 }
 function toggleFavorito(){
     let favs=JSON.parse(localStorage.getItem("favoritos"))||[];
-    if(favs.includes(currentId)){
-        favs=favs.filter(id=>id!==currentId);
-    } else {
-        favs.push(currentId);
-    }
+    if(favs.includes(currentId)){favs=favs.filter(id=>id!==currentId);}
+    else{favs.push(currentId);}
     localStorage.setItem("favoritos", JSON.stringify(favs));
     actualizarBoton();
 }
 actualizarBoton();
 
 // COMPARTIR
-function compartir(){
-    const url=window.location.href;
-    if(navigator.share){navigator.share({title:"Cocina Detalle",url});}
-    else{prompt("Copia el enlace para compartir:",url);}
-}
+function compartir(){const url=window.location.href;if(navigator.share){navigator.share({title:"Cocina Detalle",url});}else{prompt("Copia el enlace:",url);}}
 </script>
+
 </body>
 </html>
