@@ -3,12 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cocinas Inglesas</title>
 <link rel="icon" type="image/png" href="logo.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
 html {scroll-behavior:smooth;}
@@ -22,8 +19,6 @@ nav h1 {font-family:'Playfair Display', serif; color:#d6c28f; font-size:1.4rem;}
 nav ul {list-style:none; display:flex; gap:2rem;}
 nav ul li a {color:#fff; text-decoration:none; font-size:.9rem;}
 nav ul li a:hover {color:#d6c28f;}
-
-/* MENU MOBILE */
 .menu-toggle {display:none; font-size:1.8rem; color:#fff; cursor:pointer;}
 
 /* HERO */
@@ -37,17 +32,14 @@ section {padding:5rem 2rem; max-width:1400px; margin:auto;}
 section h3 {font-family:'Playfair Display', serif; font-size:2.3rem; text-align:center; margin-bottom:3rem;}
 
 /* CATALOGO */
-.favoritos-btn {text-align:center; margin-bottom:2rem; font-weight:500; cursor:pointer;}
 .catalogo-grid {display:grid; gap:2rem;}
+.card {position:relative;}
 .card img {width:100%; height:320px; object-fit:cover; border-radius:10px;}
 .card strong {display:block; margin-top:.8rem;}
 .card p {font-size:.9rem; color:#666;}
-.info {display:inline-block; margin-top:.5rem; color:#b59d63; font-weight:500; cursor:pointer;}
 
 /* DESKTOP */
-@media (min-width:769px) {
-    .catalogo-grid {grid-template-columns:repeat(4,1fr);}
-}
+@media (min-width:769px) { .catalogo-grid {grid-template-columns:repeat(4,1fr);} }
 
 /* MOBILE */
 @media (max-width:768px) {
@@ -68,7 +60,7 @@ section h3 {font-family:'Playfair Display', serif; font-size:2.3rem; text-align:
 /* CONTACTO */
 .contacto {background:#1f1f1f; color:#eee; text-align:center; padding:4rem 2rem;}
 .contacto h3 {color:#d6c28f;}
-.contacto a {margin-top:2rem; display:inline-block; padding:1rem 2.5rem; border:1px solid #d6c28f; color:#d6c28f; text-decoration:none; border-radius:30px;}
+contacto a {margin-top:2rem; display:inline-block; padding:1rem 2.5rem; border:1px solid #d6c28f; color:#d6c28f; text-decoration:none; border-radius:30px;}
 
 /* FOOTER */
 footer {background:#111; color:#777; text-align:center; padding:1.5rem;}
@@ -89,6 +81,7 @@ footer {background:#111; color:#777; text-align:center; padding:1.5rem;}
         <li><a href="#nosotros">Sobre Nosotros</a></li>
         <li><a href="#ubicacion">Dónde estamos</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <li><a href="favoritos.html">Favoritos ❤️</a></li>
     </ul>
 </nav>
 
@@ -102,20 +95,22 @@ footer {background:#111; color:#777; text-align:center; padding:1.5rem;}
 
 <section id="catalogo">
     <h3>Catálogo de Cocinas</h3>
-
-    <div class="favoritos-btn">
-        ❤️ Favoritos
-    </div>
-
     <div class="catalogo-grid">
-        <div class="card"><a href="catalogo.html?id=1"><img src="cocina1.jpg"></a><strong>Cocina Clásica Blanca</strong><p>Elegancia atemporal en tonos claros</p><span class="info">Pedir info</span></div>
-        <div class="card"><a href="catalogo.html?id=2"><img src="cocina2.jpg"></a><strong>Madera Natural</strong><p>Calidez y tradición inglesa</p><span class="info">Pedir info</span></div>
-        <div class="card"><a href="catalogo.html?id=3"><img src="cocina3.jpg"></a><strong>Inglés Moderno</strong><p>Diseño contemporáneo y funcional</p><span class="info">Pedir info</span></div>
-        <div class="card"><a href="catalogo.html?id=4"><img src="cocina4.jpg"></a><strong>Tradicional Oscura</strong><p>Carácter y distinción</p><span class="info">Pedir info</span></div>
-        <div class="card"><a href="cocina5.jpg"><img src="cocina5.jpg"></a><strong>Estilo Country</strong><p>Encanto rural refinado</p><span class="info">Pedir info</span></div>
-        <div class="card"><a href="cocina6.jpg"><img src="cocina6.jpg"></a><strong>Verde Inglés</strong><p>Color y sofisticación</p><span class="info">Pedir info</span></div>
-        <div class="card"><a href="cocina7.jpg"><img src="cocina7.jpg"></a><strong>Blanco & Mármol</strong><p>Lujo luminoso</p><span class="info">Pedir info</span></div>
-        <div class="card"><a href="cocina8.jpg"><img src="cocina8.jpg"></a><strong>Azul Profundo</strong><p>Personalidad única</p><span class="info">Pedir info</span></div>
+        <div class="card" data-id="1">
+            <a href="catalogo.html?id=1"><img src="cocina1.png"></a>
+            <strong>Cocina Clásica Blanca</strong>
+            <p>Elegancia atemporal en tonos claros</p>
+        </div>
+        <div class="card" data-id="2">
+            <a href="catalogo.html?id=2"><img src="cocina2.png"></a>
+            <strong>Madera Natural</strong>
+            <p>Calidez y tradición inglesa</p>
+        </div>
+        <div class="card" data-id="3">
+            <a href="catalogo.html?id=3"><img src="cocina3.png"></a>
+            <strong>Inglés Moderno</strong>
+            <p>Diseño contemporáneo y funcional</p>
+        </div>
     </div>
 </section>
 
@@ -144,9 +139,7 @@ footer {background:#111; color:#777; text-align:center; padding:1.5rem;}
 </footer>
 
 <script>
-function toggleMenu(){
-    document.getElementById("menu").classList.toggle("active");
-}
+function toggleMenu(){document.getElementById("menu").classList.toggle("active");}
 </script>
 
 </body>
