@@ -4,51 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cocina Detalle</title>
+<link rel="icon" type="image/png" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Montserrat',sans-serif; background:#f5f4f2; padding:2rem 1rem;}
+body {font-family:'Montserrat',sans-serif; background:#f5f4f2; color:#2c2c2c;}
 
-/* MENU */
-nav {position:fixed; top:0; width:100%; background:rgba(30,30,30,0.95); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; z-index:1000;}
+/* NAV */
+nav {
+    position:fixed; top:0; width:100%;
+    background:rgba(30,30,30,0.95);
+    padding:1rem 2rem;
+    display:flex; justify-content:space-between; align-items:center;
+    z-index:1000;
+}
 .logo {display:flex; align-items:center; gap:.7rem;}
 .logo img {width:32px;}
-nav h1 {font-family:'Playfair Display', serif; color:#d6c28f; font-size:1.4rem;}
-nav ul {list-style:none; display:flex; gap:1.5rem;}
+nav h1 {font-family:'Playfair Display',serif; color:#d6c28f; font-size:1.4rem;}
+nav ul {list-style:none; display:flex; gap:2rem;}
 nav ul li a {color:#fff; text-decoration:none; font-size:.9rem;}
 nav ul li a:hover {color:#d6c28f;}
 .menu-toggle {display:none; font-size:1.8rem; color:#fff; cursor:pointer;}
 
-/* GALERÍA */
-.galeria-container{position:relative;max-width:600px;margin:6rem auto 2rem;}
-.galeria{position:relative;aspect-ratio:4/3;}
-.galeria img{width:100%; border-radius:12px; position:absolute; top:0; left:0; opacity:0; transform:scale(1.03); transition:opacity .5s, transform .5s;}
-.galeria img.visible{opacity:1; transform:scale(1); z-index:1;}
-.flecha{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.6);color:#333;font-size:2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;}
-.flecha:hover{background:rgba(255,255,255,0.95); transform:translateY(-50%) scale(1.1);}
-.flecha:active{transform:translateY(-50%) scale(0.95);}
-.flecha.izquierda{left:10px;}
-.flecha.derecha{right:10px;}
-
-/* DETALLE Y BOTONES */
-.detalle{margin-top:1.5rem;text-align:center;}
-.detalle strong{display:block;margin-bottom:.5rem;font-size:1.2rem;}
-.detalle p{margin-bottom:1rem;color:#666;font-size:1rem;}
-.botones{display:flex;justify-content:center;gap:.7rem;margin-top:1rem; flex-wrap:wrap;}
-button{padding:.6rem 1.2rem;border-radius:30px;border:none;cursor:pointer;font-family:inherit; font-size:1rem;}
-button.precio{background:#d6c28f;}
-button.icono{background:#eee;}
-button.favorito{background:#d6c28f;color:#fff;}
-
-/* MOBILE */
-@media (max-width:768px) {
-    header h2 {font-size:2.2rem;}
+/* MOBILE MENU */
+@media(max-width:768px){
     nav ul {position:absolute; top:100%; left:0; width:100%; background:#1f1f1f; flex-direction:column; align-items:center; gap:1.5rem; padding:2rem 0; display:none;}
     nav ul.active {display:flex;}
     .menu-toggle {display:block;}
-    .catalogo-grid {grid-template-columns:repeat(2,1fr);}
-    .card:nth-child(n+3) {grid-column:span 2;}
 }
+
+/* GALERÍA */
+.galeria-container {position:relative; max-width:600px; margin:auto; margin-top:80px;}
+.galeria {position:relative; aspect-ratio:4/3;}
+.galeria img {width:100%; border-radius:12px; position:absolute; top:0; left:0; opacity:0; transform:scale(1.03); transition:opacity .5s, transform .5s;}
+.galeria img.visible {opacity:1; transform:scale(1); z-index:1;}
+.flecha {position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.75); border:1px solid rgba(255,255,255,0.6); color:#333; font-size:2rem; display:flex; justify-content:center; align-items:center; cursor:pointer; z-index:10;}
+.flecha:hover {background:rgba(255,255,255,0.95); transform:translateY(-50%) scale(1.1);}
+.flecha.izquierda {left:10px;} .flecha.derecha {right:10px;}
+
+/* DETALLE */
+.detalle {text-align:center; margin-top:1.5rem;}
+.botones {display:flex; justify-content:center; gap:1rem; margin-top:1rem;}
+button {padding:.8rem 1.5rem; border-radius:30px; border:none; cursor:pointer; font-family:inherit;}
+.precio {background:#d6c28f;}
+.icono {background:#eee; font-size:1.2rem;}
+.icono.favorito {background:#d6c28f; color:#fff;}
 </style>
 </head>
 <body>
@@ -60,7 +60,7 @@ button.favorito{background:#d6c28f;color:#fff;}
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="menu">
-        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#inicio">Inicio</a></li>
         <li><a href="index.html#catalogo">Catálogo</a></li>
         <li><a href="index.html#nosotros">Sobre Nosotros</a></li>
         <li><a href="index.html#ubicacion">Dónde estamos</a></li>
@@ -72,16 +72,16 @@ button.favorito{background:#d6c28f;color:#fff;}
 <div class="galeria-container">
     <button class="flecha izquierda" onclick="prevImage()">‹</button>
     <div class="galeria">
-        <img src="cocina1.png" class="visible">
-        <img src="cocina2.png">
-        <img src="cocina3.png">
+        <img src="cocina1.png" class="visible" data-id="1">
+        <img src="cocina2.png" data-id="2">
+        <img src="cocina3.png" data-id="3">
     </div>
     <button class="flecha derecha" onclick="nextImage()">›</button>
 </div>
 
 <div class="detalle">
-    <strong>Cocina Detalle</strong>
-    <p>Elegancia atemporal con materiales de alta calidad</p>
+    <strong id="nombre">Cocina Clásica Blanca</strong>
+    <p id="descripcion">Elegancia atemporal con materiales de alta calidad</p>
     <div class="botones">
         <button class="precio">Solicitar precios</button>
         <button class="icono" id="favorito-btn" onclick="toggleFavorito()">❤️</button>
@@ -95,30 +95,49 @@ function toggleMenu(){document.getElementById("menu").classList.toggle("active")
 // GALERÍA
 let index=0;
 const imagenes=document.querySelectorAll(".galeria img");
-function showImage(i){imagenes.forEach(img=>img.classList.remove("visible"));imagenes[i].classList.add("visible");}
+function showImage(i){
+    imagenes.forEach(img=>img.classList.remove("visible"));
+    imagenes[i].classList.add("visible");
+    updateDetalle(imagenes[i]);
+    updateFavoritoBtn(imagenes[i].dataset.id);
+}
 function nextImage(){index=(index+1)%imagenes.length; showImage(index);}
 function prevImage(){index=(index-1+imagenes.length)%imagenes.length; showImage(index);}
-showImage(index);
+function updateDetalle(img){
+    document.getElementById("nombre").textContent = `Cocina ${img.dataset.id}`;
+    document.getElementById("descripcion").textContent = "Descripción breve de la cocina";
+}
 
 // FAVORITOS
-const favoritoBtn=document.getElementById("favorito-btn");
-const currentId=index+1;
-function actualizarBoton(){
-    let favs=JSON.parse(localStorage.getItem("favoritos"))||[];
-    favoritoBtn.classList.toggle("favorito", favs.includes(currentId));
-}
 function toggleFavorito(){
-    let favs=JSON.parse(localStorage.getItem("favoritos"))||[];
-    if(favs.includes(currentId)){favs=favs.filter(id=>id!==currentId);}
-    else{favs.push(currentId);}
-    localStorage.setItem("favoritos", JSON.stringify(favs));
-    actualizarBoton();
+    const img = imagenes[index];
+    let favoritos=JSON.parse(localStorage.getItem("favoritos"))||[];
+    const id=parseInt(img.dataset.id);
+    const btn=document.getElementById("favorito-btn");
+    if(favoritos.includes(id)){
+        favoritos=favoritos.filter(f=>f!==id);
+        btn.classList.remove("favorito");
+    } else {
+        favoritos.push(id);
+        btn.classList.add("favorito");
+    }
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
 }
-actualizarBoton();
+function updateFavoritoBtn(id){
+    const btn=document.getElementById("favorito-btn");
+    const favoritos=JSON.parse(localStorage.getItem("favoritos"))||[];
+    if(favoritos.includes(parseInt(id))) btn.classList.add("favorito");
+    else btn.classList.remove("favorito");
+}
 
 // COMPARTIR
-function compartir(){const url=window.location.href;if(navigator.share){navigator.share({title:"Cocina Detalle",url});}else{prompt("Copia el enlace:",url);}}
-</script>
+function compartir(){
+    const url=window.location.href;
+    if(navigator.share){navigator.share({title:"Cocina", url});}
+    else{prompt("Copia el enlace para compartir:", url);}
+}
 
+showImage(index);
+</script>
 </body>
 </html>
